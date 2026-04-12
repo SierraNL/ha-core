@@ -35,6 +35,9 @@ async def test_entities(
 
     device_entry = device_registry.async_get_device(identifiers={(DOMAIN, DEVICE_ID)})
     assert device_entry
+    assert device_entry.name == "Fresh-r"
+    assert device_entry.manufacturer == "Fresh-r"
+    assert device_entry.serial_number == DEVICE_ID
     entity_entries = er.async_entries_for_config_entry(
         entity_registry, mock_config_entry.entry_id
     )
